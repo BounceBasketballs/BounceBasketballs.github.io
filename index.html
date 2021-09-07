@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Bounce</title>
+      <h3>We are bounce, we strive to make basketballs but not just any basketball our basketballs are made out of recycled materials so when you buy our basketball your not hurting the environment.</h3>
+
+    </head>
+    <body>
+        <script src="../js/standard.js"></script>
+        <div style="padding-top: 10px; width: 100%; display: flex;">
+            <div style="flex: 1; background-color: #2F3136; padding: 10px; text-align: center;">
+                <div style="font-size: 24px; text-align: center;">Woah you landed on ComputerElite.github.io</div>
+                <div id="categoryContainer" style="margin-top: 10px;">
+                    
+                </div>
+            </div>
+        </div>
+        <script>
+            const pages = [
+                {
+                    "name": "Tools",
+                    "pages": [
+                        {
+                            "name": "Oculus API APP Versions",
+                            "description": "Download any version of any oculus app",
+                            "img": "https://yt3.ggpht.com/ytc/AKedOLQrUa3upglNPaZkTA7dt8pzMBXBKroJZf1a0bE0fw=s900-c-k-c0x00ffffff-no-rj",
+                            "color": "#11aa22",
+                            "url": "tools/Oculus/AppVersions.html"
+                        },
+                        
+                        {
+                            "name": "Streamer tools overlays",
+                            "description": "Overlays for the streamer tools Beat Saber mod",
+                            "img": "assets/CE_512px.png",
+                            "color": "#EEEEEE",
+                            "url": "tools/Streamer_Tools_Quest_Overlay/index.html"
+                        },
+                        {
+                            "name": "Quest Beat Saber Score converter",
+                            "description": "Converts scores from 1.13.2 to 1.16.4",
+                            "img": "assets/CE_512px.png",
+                            "color": "#EEEEEE",
+                            "url": "tools/Beat_Saber/ScoreConverter.html"
+                        },
+                        {
+                            "name": "APK Downgrader",
+                            "description": "Change your APKs via diff patching (outdated for Quest apps)",
+                            "img": "assets/CE_512px.png",
+                            "color": "#EEEEEE",
+                            "url": "tools/APK_Downgrader_Web/APKDowngrader.html"
+                        }
+                    ]
+                },
+                {
+                    "name": "Guides",
+                    "pages": [
+                    {
+                            "name": "Rift Downgrader",
+                            "description": "A Guide for Rift Downgrader",
+                            "img": "https://yt3.ggpht.com/ytc/AKedOLQrUa3upglNPaZkTA7dt8pzMBXBKroJZf1a0bE0fw=s900-c-k-c0x00ffffff-no-rj",
+                            "color": "#11aa22",
+                            "url": "tools/Oculus/RiftDowngraderGuide.html"
+                        },
+                        {
+                            "name": "Obtain Oculus Token",
+                            "description": "A Guide for obtaining your Oculus Token",
+                            "img": "https://yt3.ggpht.com/ytc/AKedOLQrUa3upglNPaZkTA7dt8pzMBXBKroJZf1a0bE0fw=s900-c-k-c0x00ffffff-no-rj",
+                            "color": "#11aa22",
+                            "url": "tools/Oculus/ObtainToken.html"
+                        },
+                        {
+                            "name": "APK Downgrader",
+                            "description": "A Guide for how to use APK Downgrader (APK Downgrader is outdated for Quest downgrading)",
+                            "img": "assets/CE_512px.png",
+                            "color": "#EEEEEE",
+                            "url": "tools/APK_Downgrader_Web/Guide.html"
+                        }
+                    ]
+                },
+                {
+                    "name": "Fun",
+                    "pages": [
+                        {
+                            "name": "Bouncing logo",
+                            "description": "A custom bouncing logo to fit your needs",
+                            "img": "assets/CE_512px.png",
+                            "color": "#EEEEEE",
+                            "url": "fun/BouncingLogo.html"
+                        },
+                        {
+                            "name": "Snake",
+                            "description": "Port of my private C# console snake",
+                            "img": "assets/CE_512px.png",
+                            "color": "#EEEEEE",
+                            "url": "fun/snake.html"
+                        }
+                    ]
+                }
+            ]
+            const categoryContainer = document.getElementById("categoryContainer")
+
+            pages.forEach(category => {
+                categoryContainer.innerHTML += GetCategoryFormatted(category)
+            })
+
+            function GetCategoryFormatted(category) {
+                var childs = ""
+                category.pages.forEach(page => {
+                    childs += `<div onclick="window.open('${page.url}', '_self')" class="zoom" style="cursor: pointer; display: flex; align-items: center; flex: 1; height: 100px; min-width: 400px; background-image: url('${page.img}'); background-position: center; color: ${page.color}; background-size: cover; max-width: 50%;">
+                                    <div style="flex: 1; font-size: 16px;">${page.name}<div style="font-size: 12px">${page.description}</div></div>
+                                </div>`
+                })
+                return `<div style="background-color: #262626;">
+                            <div style="font-size: 18px; text-align: center;">${category.name}</div>
+                            <div style="display: flex; margin: 10px; flex-wrap: wrap; justify-content: center;">
+                                ${childs}
+                            </div>
+                        </div>`
+            }
+        </script>
+    </body>
+</html>
